@@ -101,24 +101,25 @@ footer {
   100% { transform: translateY(110vh) rotate(360deg); opacity: 0.7; }
 }
 
-/* Popup */
+/* Popup - gefixte versie */
 #surprise {
-  display:none;
-  position:fixed;
-  top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.95);
-  color:#ff7518;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  z-index:10;
-  font-size:2rem;
-  text-align:center;
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(0,0,0,0.97);
+  color: #ff7518;
+  z-index: 10;
+  font-size: 2rem;
+  text-align: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 #surprise.show {
-  display:flex;
+  visibility: visible;
   opacity: 1;
 }
 
@@ -214,10 +215,8 @@ function showSurprise(){
 function hideSurprise(){
   const surprise = document.getElementById('surprise');
   surprise.classList.remove('show');
-  setTimeout(()=>{ surprise.style.display='none'; }, 500);
 }
 </script>
 
 </body>
 </html>
-
