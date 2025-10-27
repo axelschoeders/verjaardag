@@ -17,18 +17,6 @@ body {
   overflow:hidden;
 }
 
-/* Mist effect - betrouwbare afbeelding */
-.mist {
-  position: fixed;
-  inset: 0;
-  background: url('https://cdn.pixabay.com/photo/2017/12/10/14/47/fog-3013722_1280.png') repeat;
-  background-size: cover;
-  opacity:0.25;
-  pointer-events:none;
-  animation: mistmove 60s linear infinite;
-}
-@keyframes mistmove { from {background-position:0 0;} to {background-position:1000px 0;} }
-
 h1 {
   font-size: 3rem;
   margin-top: 40px;
@@ -84,9 +72,9 @@ footer {
   100% { transform: translateX(100vw); }
 }
 
-/* 🎃 Popup volledig verbergen bij sluiten */
+/* 🎃 Popup - volledig verborgen bij sluiten */
 #surprise {
-  display: none; /* helemaal weg bij sluiten */
+  display: none; /* volledig weg bij sluiten */
   position: fixed;
   inset: 0;
   justify-content: center;
@@ -140,8 +128,6 @@ footer {
 </head>
 <body>
 
-<div class="mist"></div>
-
 <h1>🎃 Happy Birthday, Aster! 🦈</h1>
 
 <div class="card">
@@ -185,10 +171,9 @@ for(let i=0;i<15;i++){
 
 /* Popup openen */
 function showSurprise() {
-  surprise.classList.add('show');
   surprise.style.display = 'flex'; // direct zichtbaar
   song.currentTime = 0;
-  song.play().catch(() => console.log("Klik op play als autoplay geblokkeerd is"));
+  song.play().catch(()=>console.log("Klik op play als autoplay geblokkeerd is"));
 
   // Confetti
   for(let i=0;i<50;i++){
@@ -204,7 +189,6 @@ function showSurprise() {
 
 /* Popup sluiten */
 function hideSurprise() {
-  surprise.classList.remove('show');
   surprise.style.display = 'none'; // helemaal weg
   song.pause();
 }
@@ -212,5 +196,3 @@ function hideSurprise() {
 
 </body>
 </html>
-
-
